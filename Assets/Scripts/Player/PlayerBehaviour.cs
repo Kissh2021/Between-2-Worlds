@@ -48,4 +48,12 @@ public class PlayerBehaviour : MonoBehaviour
         vel.x = _inputVector.x*speed;
         m_rb.velocity = vel;
     }
+
+    public void Warp(InputAction.CallbackContext _context)
+    {
+        if(_context.performed)
+        {
+            GameManager.instance.dm.warp();
+        }
+    }
 }

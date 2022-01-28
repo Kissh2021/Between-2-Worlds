@@ -1,4 +1,7 @@
-﻿public class DimentionsManager
+﻿using UnityEngine;
+using UnityEngine.Events;
+
+public class DimentionsManager
 {
     public enum Dimentions
     {
@@ -6,14 +9,22 @@
         Wysteria = 1
     }
 
+    public UnityEvent warpEvent;
+
     private Dimentions _dimention = Dimentions.Afthlea;
+
+    public DimentionsManager(){
+        warpEvent = new UnityEvent();
+    }
 
     public void warp()
     {
-        if (this._dimention == Dimentions.Afthlea)
-            this._dimention = Dimentions.Wysteria;
+        if (_dimention == Dimentions.Afthlea)
+            _dimention = Dimentions.Wysteria;
         else
-            this._dimention = Dimentions.Afthlea;
+            _dimention = Dimentions.Afthlea;
+
+        warpEvent.Invoke();
     }
 
     public Dimentions dimention
