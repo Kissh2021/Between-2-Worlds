@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance.dm.warpEvent.Invoke();
     }
 
     // Update is called once per frame

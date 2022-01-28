@@ -1,11 +1,11 @@
+using Interfaces;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using Vector2 = UnityEngine.Vector2;
 
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private float speed = 5;
@@ -15,11 +15,12 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector2 m_inputVector = Vector2.zero;
 
     private Rigidbody2D m_rb;
+
+    public UnityEvent dieEvent;
     
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
-
     }
 
     void Update()
@@ -55,5 +56,16 @@ public class PlayerBehaviour : MonoBehaviour
         {
             GameManager.instance.dm.warp();
         }
+    }
+    public void Hit()
+    {
+        dieEvent.Invoke();
+        StartCoroutine(waitBeforeDie());
+    }
+
+    private IEnumerator waitBeforeDie(float duration = 1f)
+    {
+        yield return new WaitForSecondsRealtime(duration);
+        Destroy(gameObject);
     }
 }
