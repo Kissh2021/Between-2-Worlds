@@ -7,6 +7,7 @@ public class DisableOnWarp : MonoBehaviour, IWarpable
 {
     [SerializeField]
     private DimentionsManager.Dimentions _dimention;
+
     public void Warp()
     {
         gameObject.SetActive(GameManager.instance.dm.dimention == _dimention);
