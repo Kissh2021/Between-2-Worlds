@@ -1,10 +1,13 @@
+using System;
 using Interfaces;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerBehaviour : MonoBehaviour, IDamageable
 {
     [SerializeField]
@@ -17,6 +20,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
     private Rigidbody2D m_rb;
 
     public UnityEvent dieEvent;
+
+    private bool m_isgrounded;
     
     void Start()
     {
@@ -28,6 +33,11 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
         Move(m_inputVector);
     }
 
+    private void FixedUpdate()
+    {
+        m_isgrounded = IsGrounded();
+    }
+
     public void MoveInput(InputAction.CallbackContext _context)
     {
         m_inputVector = _context.ReadValue<Vector2>();
@@ -35,7 +45,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
 
     public void JumpInput(InputAction.CallbackContext _context)
     {
-        if (_context.performed)
+        if (_context.performed && m_isgrounded)
         {
             Vector2 vel = m_rb.velocity;
             vel.y = jumpPower;
@@ -57,8 +67,29 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
             GameManager.instance.dm.warp();
         }
     }
+
+    private bool IsGrounded()
+    {
+        bool grounded = false;
+
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, Vector2.zero);
+
+        foreach (var hit in hits)
+        {
+            if (hit.collider.gameObject != gameObject)
+            {
+                grounded = true;
+            }
+        }
+        grounded = true;
+
+        return grounded;
+    }
+    
     public void Hit()
     {
+        GetComponent<PlayerInput>().enabled = false;
+        m_rb.isKinematic = true;
         dieEvent.Invoke();
         StartCoroutine(waitBeforeDie());
     }
