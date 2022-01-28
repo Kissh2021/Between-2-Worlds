@@ -4,39 +4,33 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-
-    private Dimentions _dimention;
+    /*** Singleton ***/
+    private static GameObject _instance;
 
     public static GameManager getInstance()
     {
         if (!_instance)
-            _instance = new GameManager();
-        return _instance;
+        {
+            _instance = new GameObject("@GameManager");
+            _instance.AddComponent<GameManager>();
+            DontDestroyOnLoad(_instance);
+        }
+        return _instance.GetComponent<GameManager>();
     }
+
+    /*** Manager ***/
+
+    public DimentionsManager dm;
 
     public GameManager()
     {
-        this._dimention = Dimentions.Afthlea;
+        dm = new DimentionsManager();
     }
 
-    public void wrap()
-    {
-        if (this._dimention == Dimentions.Afthlea)
-            this._dimention = Dimentions.Wysteria;
-        else
-            this._dimention = Dimentions.Afthlea;
-    }
-
-    public Dimentions dimention
-    {
-        get { return _dimention; }
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
