@@ -19,6 +19,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
