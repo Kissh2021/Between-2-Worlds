@@ -41,6 +41,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     private PlayerInput m_playerInput;
     private SpriteRenderer m_renderer;
+    private Animator m_animator;
 
     private float currentSpeed
     {
@@ -58,10 +59,14 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     void Start()
     {
+        m_animator = GetComponentInChildren<Animator>();
         m_renderer = GetComponentInChildren<SpriteRenderer>();
         m_playerInput = GetComponent<PlayerInput>();
         m_rb = GetComponent<Rigidbody2D>();
         origialGravityScale = m_rb.gravityScale;
+
+        GameManager.instance.dm.warpEvent.AddListener(setAnimatorLayer);
+        setAnimatorLayer();
     }
 
     void Update()
@@ -231,5 +236,18 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
         m_playerInput.enabled = true;
         m_rb.isKinematic = false;
         m_renderer.enabled = true;
+    }
+
+    private void setAnimatorLayer()
+    {
+        if(GameManager.instance.dm.dimension == DimensionsManager.Dimensions.Afthlea)
+        {
+            m_animator.SetLayerWeight(0, 1);
+            m_animator.SetLayerWeight(1, 0);
+        } else
+        {
+            m_animator.SetLayerWeight(0, 0);
+            m_animator.SetLayerWeight(1, 1);
+        }
     }
 }
