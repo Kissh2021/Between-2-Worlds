@@ -5,12 +5,14 @@ using UnityEngine;
 public class RespawnFlagBehavior : MonoBehaviour
 {
     private RespawnManager _rm;
+    private ParticleSystem _particles;
 
     [SerializeField]
     private Sprite flaggedSprite;
     private void Start()
     {
         _rm = FindObjectOfType<RespawnManager>();
+        _particles = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,6 +23,7 @@ public class RespawnFlagBehavior : MonoBehaviour
             SpriteRenderer sr = gameObject.AddComponent<SpriteRenderer>();
             sr.sortingOrder = 15;
             sr.sprite = flaggedSprite;
+            _particles.Play();
         }
     }
 }
