@@ -86,7 +86,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
     {
         if(_context.performed)
         {
-            GameManager.instance.dm.warp();
+            GameManager.instance.warp();
         }
     }
 
