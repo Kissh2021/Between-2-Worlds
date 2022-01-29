@@ -14,12 +14,15 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
     private float speed = 5;
     [SerializeField]
     private float jumpPower = 10f;
+
+    private int m_bonusJumps = 0;
     
     private Vector2 m_inputVector = Vector2.zero;
 
     private Rigidbody2D m_rb;
 
     public UnityEvent dieEvent;
+    public UnityEvent bonusJumpEvent;
 
     private bool m_isgrounded;
     
@@ -45,12 +48,31 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
 
     public void JumpInput(InputAction.CallbackContext _context)
     {
-        if (_context.performed && m_isgrounded)
+        if (_context.performed )
         {
-            Vector2 vel = m_rb.velocity;
-            vel.y = jumpPower;
-            m_rb.velocity = vel;
+            if (m_isgrounded)
+            {
+                Jump();
+            }
+            else if(m_bonusJumps > 0)
+            {
+                Jump();
+                m_bonusJumps--;
+            }
         }
+    }
+
+    public void AddBonusJump(int amount = 1)
+    {
+        m_bonusJumps += amount;
+        bonusJumpEvent.Invoke();
+    }
+
+    void Jump()
+    {
+        Vector2 vel = m_rb.velocity;
+        vel.y = jumpPower;
+        m_rb.velocity = vel;
     }
     
     private void Move(Vector2 _inputVector)
@@ -73,10 +95,11 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
         bool grounded = false;
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 0.2f);
+        Debug.DrawRay(transform.position, Vector2.down * 0.2f, Color.red);
 
         foreach (var hit in hits)
         {
-            if (!ReferenceEquals(hit.collider.gameObject, gameObject))
+            if (!hit.collider.CompareTag("Player"))
             {
                 grounded = true;
             }
