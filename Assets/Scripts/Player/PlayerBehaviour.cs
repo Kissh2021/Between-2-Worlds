@@ -19,6 +19,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private float climbSpeed = 3;
     [SerializeField]
     private float jumpPower = 10f;
+    [SerializeField]
+    private Vector2 _jumpVector = new Vector2(0.8f, 1);
 
     private int m_bonusJumps = 0;
 
@@ -27,8 +29,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private Rigidbody2D m_rb;
     private float origialGravityScale;
 
-    public UnityEvent dieEvent;
-    public UnityEvent bonusJumpEvent;
+    public UnityEvent dieEvent = new UnityEvent();
+    public UnityEvent bonusJumpEvent = new UnityEvent();
 
     private bool m_isgrounded;
     private MovingState _movingState = MovingState.Normal;
@@ -36,6 +38,10 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private ClimbableBehavior currentClimbableBehavior;
 
     private bool stopMoveInput = false;
+
+    private PlayerInput m_playerInput;
+    private SpriteRenderer m_renderer;
+    private Animator m_animator;
 
     private float currentSpeed
     {
@@ -53,8 +59,14 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     void Start()
     {
+        m_animator = GetComponentInChildren<Animator>();
+        m_renderer = GetComponentInChildren<SpriteRenderer>();
+        m_playerInput = GetComponent<PlayerInput>();
         m_rb = GetComponent<Rigidbody2D>();
         origialGravityScale = m_rb.gravityScale;
+
+        GameManager.instance.dm.warpEvent.AddListener(setAnimatorLayer);
+        setAnimatorLayer();
     }
 
     void Update()
@@ -124,9 +136,9 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
             stopMoveInput = true;
             Vector2 jumpVector;
             if (Vector2.Dot(Vector2.right, transform.position - currentClimbableBehavior.transform.position) >= 0)
-                jumpVector = new Vector2(1, 1);
+                jumpVector = new Vector2(_jumpVector.x, _jumpVector.y);
             else
-                jumpVector = new Vector2(-1, 1);
+                jumpVector = new Vector2(-(_jumpVector.x), _jumpVector.y);
 
             m_rb.velocity = jumpVector * (jumpPower * 0.6f);
         }
@@ -135,11 +147,11 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private void Move(Vector2 _inputVector)
     {
         Vector2 vel = m_rb.velocity;
-        vel.x += _inputVector.x * currentSpeed;
+        vel.x = _inputVector.x * currentSpeed;
 
         if (_movingState == MovingState.Climb)
         {
-            vel.y += _inputVector.y * currentSpeed;
+            vel.y = _inputVector.y * currentSpeed;
             vel.x = Mathf.Clamp(vel.x, -speed, speed);
             vel.y = Mathf.Clamp(vel.y, -speed, speed);
         }
@@ -180,15 +192,12 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     public void Hit()
     {
-        m_rb.velocity = Vector2.zero;
-        GetComponent<PlayerInput>().enabled = false;
-        m_rb.isKinematic = true;
+        disable();
         StartCoroutine(waitBeforeDie());
     }
 
     private IEnumerator waitBeforeDie(float duration = 1f)
     {
-        gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(duration);
         reset();
         dieEvent.Invoke();
@@ -210,11 +219,35 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
         Debug.Log($"Moving state : {_movingState}");
     }
 
+    public void disable()
+    {
+        m_rb.velocity = Vector2.zero;
+        m_playerInput.enabled = false;
+        m_rb.isKinematic = true;
+        m_renderer.enabled = false;
+    }
+
     public void reset()
     {
         m_bonusJumps = 0;
         _movingState = MovingState.Normal;
         stopMoveInput = false;
         currentClimbableBehavior = null;
+        m_playerInput.enabled = true;
+        m_rb.isKinematic = false;
+        m_renderer.enabled = true;
+    }
+
+    private void setAnimatorLayer()
+    {
+        if(GameManager.instance.dm.dimension == DimensionsManager.Dimensions.Afthlea)
+        {
+            m_animator.SetLayerWeight(0, 1);
+            m_animator.SetLayerWeight(1, 0);
+        } else
+        {
+            m_animator.SetLayerWeight(0, 0);
+            m_animator.SetLayerWeight(1, 1);
+        }
     }
 }
