@@ -48,8 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpPower: 14
+  jumpPower: 12
   dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  bonusJumpEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &647927997364506167
