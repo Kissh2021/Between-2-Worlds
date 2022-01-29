@@ -30,7 +30,6 @@ public class FadeOnWarpBehavior : MonoBehaviour
                     opacity = 1;
                 break;
         }
-        Debug.Log(opacity);
         m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, opacity);
     }
 }

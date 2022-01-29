@@ -1,39 +1,66 @@
-using System;
 using Interfaces;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerBehaviour : MonoBehaviour, IDamageable
+public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 {
+    private enum MovingState
+    {
+        Normal,
+        Climb
+    }
+
     [SerializeField]
     private float speed = 5;
+    [SerializeField]
+    private float climbSpeed = 3;
     [SerializeField]
     private float jumpPower = 10f;
 
     private int m_bonusJumps = 0;
-    
+
     private Vector2 m_inputVector = Vector2.zero;
 
     private Rigidbody2D m_rb;
+    private float origialGravityScale;
 
     public UnityEvent dieEvent;
     public UnityEvent bonusJumpEvent;
 
     private bool m_isgrounded;
-    
+    private MovingState _movingState = MovingState.Normal;
+
+    private ClimbableBehavior currentClimbableBehavior;
+
+    private float currentSpeed
+    {
+        get
+        {
+            switch (_movingState)
+            {
+                case MovingState.Climb:
+                    return climbSpeed;
+                default:
+                    return speed;
+            }
+        }
+    }
+
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        origialGravityScale = m_rb.gravityScale;
     }
 
     void Update()
     {
-        Move(m_inputVector);
+        if(m_inputVector.magnitude > 0.1f)
+        {
+            Move(m_inputVector);
+        } 
     }
 
     private void FixedUpdate()
@@ -48,16 +75,25 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
 
     public void JumpInput(InputAction.CallbackContext _context)
     {
-        if (_context.performed )
+        if (_context.performed)
         {
-            if (m_isgrounded)
+            switch (_movingState)
             {
-                Jump();
-            }
-            else if(m_bonusJumps > 0)
-            {
-                Jump();
-                m_bonusJumps--;
+                case MovingState.Climb:
+                    m_rb.gravityScale = origialGravityScale;
+                    JumpFromLadder();
+                    break;
+                case MovingState.Normal:
+                    if (m_isgrounded)
+                    {
+                        Jump();
+                    }
+                    else if (m_bonusJumps > 0)
+                    {
+                        Jump();
+                        m_bonusJumps--;
+                    }
+                    break;
             }
         }
     }
@@ -74,17 +110,37 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
         vel.y = jumpPower;
         m_rb.velocity = vel;
     }
-    
+
+    void JumpFromLadder()
+    {
+        if (currentClimbableBehavior)
+        {
+            Vector2 jumpVector;
+            if (Vector2.Dot(Vector2.right, transform.position - currentClimbableBehavior.transform.position) >= 0)
+                jumpVector = new Vector2(1, 1);
+            else
+                jumpVector = new Vector2(-1, 1);
+
+            m_rb.velocity = jumpVector * jumpPower;
+        }
+    }
+
     private void Move(Vector2 _inputVector)
     {
         Vector2 vel = m_rb.velocity;
-        vel.x = _inputVector.x*speed;
+        vel.x = _inputVector.x * currentSpeed;
+
+        if (_movingState == MovingState.Climb)
+        {
+            vel.y = _inputVector.y * currentSpeed;
+        }
+
         m_rb.velocity = vel;
     }
 
     public void Warp(InputAction.CallbackContext _context)
     {
-        if(_context.performed)
+        if (_context.performed)
         {
             GameManager.instance.warp();
         }
@@ -104,10 +160,10 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
                 grounded = true;
             }
         }
-        
+
         return grounded;
     }
-    
+
     public void Hit()
     {
         GetComponent<PlayerInput>().enabled = false;
@@ -120,5 +176,21 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
     {
         yield return new WaitForSecondsRealtime(duration);
         Destroy(gameObject);
+    }
+
+    public void climb(ClimbableBehavior climbableBehavior)
+    {
+        currentClimbableBehavior = climbableBehavior;
+        _movingState = MovingState.Climb;
+        m_rb.gravityScale = 0f;
+        Debug.Log($"Moving state : {_movingState}");
+    }
+
+    public void unclimb()
+    {
+        currentClimbableBehavior = null;
+        _movingState = MovingState.Normal;
+        m_rb.gravityScale = origialGravityScale;
+        Debug.Log($"Moving state : {_movingState}");
     }
 }
