@@ -6,11 +6,11 @@ using UnityEngine;
 public class DisableOnWarp : MonoBehaviour, IWarpable
 {
     [SerializeField]
-    private DimentionsManager.Dimentions _dimention;
+    private DimensionsManager.Dimensions _dimension;
 
     public void Warp()
     {
-        gameObject.SetActive(GameManager.instance.dm.dimention == _dimention);
+        gameObject.SetActive(GameManager.instance.dm.dimension == _dimension);
     }
 
     // Start is called before the first frame update
