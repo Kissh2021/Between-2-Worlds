@@ -51,6 +51,7 @@ MonoBehaviour:
   speed: 5
   climbSpeed: 3
   jumpPower: 12
+  _jumpVector: {x: 0.8, y: 1}
   dieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -305,7 +306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -6529521386538993738, guid: bee8b298825cce4429b2e680fa67ac48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
