@@ -135,11 +135,18 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private void Move(Vector2 _inputVector)
     {
         Vector2 vel = m_rb.velocity;
-        vel.x = _inputVector.x * currentSpeed;
+        vel.x += _inputVector.x * currentSpeed;
 
         if (_movingState == MovingState.Climb)
         {
-            vel.y = _inputVector.y * currentSpeed;
+            vel.y += _inputVector.y * currentSpeed;
+            vel.x = Mathf.Clamp(vel.x, -speed, speed);
+            vel.y = Mathf.Clamp(vel.y, -speed, speed);
+        }
+        else
+        {
+            vel.x = _inputVector.x * currentSpeed;
+
         }
 
         m_rb.velocity = vel;
