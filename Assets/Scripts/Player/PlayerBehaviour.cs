@@ -35,6 +35,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     private ClimbableBehavior currentClimbableBehavior;
 
+    private bool stopMoveInput = false;
+
     private float currentSpeed
     {
         get
@@ -57,7 +59,10 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     void Update()
     {
-        Move(m_inputVector);
+        if (!stopMoveInput)
+        {
+            Move(m_inputVector);
+        }
     }
 
     private void FixedUpdate()
@@ -67,6 +72,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     public void MoveInput(InputAction.CallbackContext _context)
     {
+        stopMoveInput = false;
         m_inputVector = _context.ReadValue<Vector2>();
     }
 
@@ -77,10 +83,10 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
             switch (_movingState)
             {
                 case MovingState.Climb:
-                    if(!m_isgrounded)
+                    if (!m_isgrounded)
                     {
                         m_rb.gravityScale = origialGravityScale;
-                    JumpFromLadder();
+                        JumpFromLadder();
                     }
                     break;
                 case MovingState.Normal:
@@ -115,13 +121,14 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     {
         if (currentClimbableBehavior)
         {
+            stopMoveInput = true;
             Vector2 jumpVector;
             if (Vector2.Dot(Vector2.right, transform.position - currentClimbableBehavior.transform.position) >= 0)
                 jumpVector = new Vector2(1, 1);
             else
                 jumpVector = new Vector2(-1, 1);
 
-            m_rb.velocity = jumpVector * (jumpPower * 0.7f);
+            m_rb.velocity = jumpVector * (jumpPower * 0.6f);
         }
     }
 
