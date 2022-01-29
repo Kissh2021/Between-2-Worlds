@@ -110,6 +110,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
     
     public void Hit()
     {
+        m_rb.velocity = Vector2.zero;
         GetComponent<PlayerInput>().enabled = false;
         m_rb.isKinematic = true;
         dieEvent.Invoke();
