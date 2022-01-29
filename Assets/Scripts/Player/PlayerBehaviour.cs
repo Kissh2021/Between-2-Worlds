@@ -57,10 +57,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     void Update()
     {
-        if(m_inputVector.magnitude > 0.1f)
-        {
-            Move(m_inputVector);
-        } 
+        Move(m_inputVector);
     }
 
     private void FixedUpdate()
