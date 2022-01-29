@@ -72,17 +72,16 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable
     {
         bool grounded = false;
 
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, Vector2.zero);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 0.2f);
 
         foreach (var hit in hits)
         {
-            if (hit.collider.gameObject != gameObject)
+            if (!ReferenceEquals(hit.collider.gameObject, gameObject))
             {
                 grounded = true;
             }
         }
-        grounded = true;
-
+        
         return grounded;
     }
     
