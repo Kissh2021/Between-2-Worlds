@@ -176,14 +176,15 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
         m_rb.velocity = Vector2.zero;
         GetComponent<PlayerInput>().enabled = false;
         m_rb.isKinematic = true;
-        dieEvent.Invoke();
         StartCoroutine(waitBeforeDie());
     }
 
     private IEnumerator waitBeforeDie(float duration = 1f)
     {
+        gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(duration);
-        Destroy(gameObject);
+        reset();
+        dieEvent.Invoke();
     }
 
     public void climb(ClimbableBehavior climbableBehavior)
@@ -200,5 +201,13 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
         _movingState = MovingState.Normal;
         m_rb.gravityScale = origialGravityScale;
         Debug.Log($"Moving state : {_movingState}");
+    }
+
+    public void reset()
+    {
+        m_bonusJumps = 0;
+        _movingState = MovingState.Normal;
+        stopMoveInput = false;
+        currentClimbableBehavior = null;
     }
 }
