@@ -80,8 +80,11 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
             switch (_movingState)
             {
                 case MovingState.Climb:
-                    m_rb.gravityScale = origialGravityScale;
+                    if(!m_isgrounded)
+                    {
+                        m_rb.gravityScale = origialGravityScale;
                     JumpFromLadder();
+                    }
                     break;
                 case MovingState.Normal:
                     if (m_isgrounded)
@@ -121,7 +124,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
             else
                 jumpVector = new Vector2(-1, 1);
 
-            m_rb.velocity = jumpVector * jumpPower;
+            m_rb.velocity = jumpVector * (jumpPower * 0.7f);
         }
     }
 
