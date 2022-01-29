@@ -6,14 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlateformAttach : MonoBehaviour
 {
-    private List<GameObject> objectsOn = new List<GameObject>();
+    private List<GameObject> m_objectsOn = new List<GameObject>();
 
-    private Vector2 previousPostion;
+    private Vector2 m_previousPostion;
 
 
     private void Start()
     {
-        previousPostion = transform.position;
+        m_previousPostion = transform.position;
         if (!GetComponent<Rigidbody2D>().isKinematic)
         {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
@@ -24,7 +24,7 @@ public class PlateformAttach : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (var go in objectsOn)
+        foreach (var go in m_objectsOn)
         {
             if (go.TryGetComponent<Rigidbody2D>(out var rb))
             {
@@ -33,25 +33,25 @@ public class PlateformAttach : MonoBehaviour
                     continue;
                 }
             }
-            go.transform.position = (Vector2)go.transform.position + ((Vector2)transform.position - previousPostion);
+            go.transform.position = (Vector2)go.transform.position + ((Vector2)transform.position - m_previousPostion);
         }
         
-        previousPostion = transform.position;
+        m_previousPostion = transform.position;
     }
     
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (!objectsOn.Contains(col.gameObject))
+        if (!m_objectsOn.Contains(col.gameObject))
         {
-            objectsOn.Add(col.gameObject);
+            m_objectsOn.Add(col.gameObject);
         }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (objectsOn.Contains(other.gameObject))
+        if (m_objectsOn.Contains(other.gameObject))
         {
-            objectsOn.Remove(other.gameObject);
+            m_objectsOn.Remove(other.gameObject);
         }
     }
 }

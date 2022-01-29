@@ -220,14 +220,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
+--- !u!114 &519420029
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -255,7 +261,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.0754185
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -881,8 +887,8 @@ Tilemap:
   - first: {x: -9, y: -5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1060,11 +1066,15 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 18
+  - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: ba0afddf12fdad44795b2b8e648b43e7, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 7bbef8e94e5e14b4891b521dea5285f0, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 18
+  - m_RefCount: 17
     m_Data: {fileID: 21300000, guid: 493bb48460b81df449a6637eeb633bf5, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 46e57b2b96a90214f9258dcd8d5e868e, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 18
     m_Data:
@@ -1298,15 +1308,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647927997364506154, guid: 0f8d78b49ee047b46b24ca01f2ce9ec2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.36
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 647927997364506154, guid: 0f8d78b49ee047b46b24ca01f2ce9ec2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 647927997364506154, guid: 0f8d78b49ee047b46b24ca01f2ce9ec2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5917029
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 647927997364506154, guid: 0f8d78b49ee047b46b24ca01f2ce9ec2, type: 3}
       propertyPath: m_LocalRotation.w
