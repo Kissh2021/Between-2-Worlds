@@ -23,7 +23,7 @@ public class RespawnManager : MonoBehaviour
         _player.gameObject.SetActive(true);
     }
 
-    private void Awake()
+    private void Start()
     {
         _player = FindObjectOfType<PlayerBehaviour>();
 

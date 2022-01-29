@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class RespawnFlagBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private RespawnManager _rm;
+    private void Start()
     {
-        
+        _rm = FindObjectOfType<RespawnManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.GetComponent<PlayerBehaviour>()) {
+            _rm.respawnFlag = this;
+            GetComponent<Collider2D>().enabled = false;
+        }
     }
 }
