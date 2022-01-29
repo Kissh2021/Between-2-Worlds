@@ -130,8 +130,8 @@ TextureImporter:
       name: sprite_sheet_sol_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 233
+        x: 1
+        y: 234
         width: 128
         height: 128
       alignment: 0
@@ -154,7 +154,7 @@ TextureImporter:
         x: 135
         y: 233
         width: 128
-        height: 127
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,7 +196,7 @@ TextureImporter:
         x: 403
         y: 233
         width: 128
-        height: 129
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,7 +217,7 @@ TextureImporter:
         x: 537
         y: 233
         width: 128
-        height: 129
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,7 +238,7 @@ TextureImporter:
         x: 671
         y: 233
         width: 128
-        height: 127
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,7 +256,7 @@ TextureImporter:
       name: sprite_sheet_sol_6
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 31
         width: 128
         height: 128
@@ -319,7 +319,7 @@ TextureImporter:
       name: sprite_sheet_sol_9
       rect:
         serializedVersion: 2
-        x: 404
+        x: 403
         y: 31
         width: 128
         height: 128
