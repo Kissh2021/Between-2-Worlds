@@ -44,21 +44,27 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 21f35bf85865fad4fb3dfe996de5fd0d, type: 3}
-    - {fileID: 2800000, guid: 9fe68cd6019f6d345bd64f8f5d2abb75, type: 3}
+    - {fileID: 2800000, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
     - {fileID: 2800000, guid: 97ba1f030d8d6c744b0c4586c4a137da, type: 3}
-    - {fileID: 2800000, guid: ac453da990d805540835809bf2470aba, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: -5707354572396988479, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
+  - {fileID: -489761657508049014, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
+  - {fileID: -774615856098732052, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
+  - {fileID: 5356849259823349278, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
+  - {fileID: 2859308237852812758, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
+  - {fileID: -6804839107625956910, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
+  - {fileID: -3900604079324697196, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
+  - {fileID: -1965005013179712391, guid: f842fc823266b844db338e2c73fc01a2, type: 3}
   - {fileID: -7069018564726863697, guid: 97ba1f030d8d6c744b0c4586c4a137da, type: 3}
   - {fileID: 9003234227838531137, guid: 97ba1f030d8d6c744b0c4586c4a137da, type: 3}
   - {fileID: 1490854381530899874, guid: 97ba1f030d8d6c744b0c4586c4a137da, type: 3}
   - {fileID: 5378085744900573539, guid: 97ba1f030d8d6c744b0c4586c4a137da, type: 3}
   - {fileID: -2629330590300352624, guid: 97ba1f030d8d6c744b0c4586c4a137da, type: 3}
   - {fileID: 2349723124049241337, guid: 97ba1f030d8d6c744b0c4586c4a137da, type: 3}
-  - {fileID: 21300000, guid: 9fe68cd6019f6d345bd64f8f5d2abb75, type: 3}
   - {fileID: 7007915181810204601, guid: 21f35bf85865fad4fb3dfe996de5fd0d, type: 3}
   - {fileID: -1596719551407632602, guid: 21f35bf85865fad4fb3dfe996de5fd0d, type: 3}
   - {fileID: 3154142287156427094, guid: 21f35bf85865fad4fb3dfe996de5fd0d, type: 3}
@@ -71,15 +77,21 @@ SpriteAtlas:
   - {fileID: 7436072156305738203, guid: 21f35bf85865fad4fb3dfe996de5fd0d, type: 3}
   - {fileID: 6954688897992807042, guid: 21f35bf85865fad4fb3dfe996de5fd0d, type: 3}
   - {fileID: -8136449248560848855, guid: 21f35bf85865fad4fb3dfe996de5fd0d, type: 3}
-  - {fileID: 21300000, guid: ac453da990d805540835809bf2470aba, type: 3}
   m_PackedSpriteNamesToIndex:
+  - sprite_sheet_divers_5
+  - sprite_sheet_divers_4
+  - sprite_sheet_divers_7
+  - sprite_sheet_divers_6
+  - sprite_sheet_divers_1
+  - sprite_sheet_divers_0
+  - sprite_sheet_divers_3
+  - sprite_sheet_divers_2
   - sprite_sheet_plateforme_5
   - sprite_sheet_plateforme_4
   - sprite_sheet_plateforme_1
   - sprite_sheet_plateforme_0
   - sprite_sheet_plateforme_3
   - sprite_sheet_plateforme_2
-  - asset_sol_transitionDEUX
   - sprite_sheet_sol_6
   - sprite_sheet_sol_7
   - sprite_sheet_sol_4
@@ -92,7 +104,6 @@ SpriteAtlas:
   - sprite_sheet_sol_9
   - sprite_sheet_sol_11
   - sprite_sheet_sol_10
-  - asset_sol_transitionUNE
   m_RenderDataMap: {}
   m_Tag: Enviro_Atlas
   m_IsVariant: 0
