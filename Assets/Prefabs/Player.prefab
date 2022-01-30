@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3622485869479072453}
   - component: {fileID: 3622485869479072452}
   - component: {fileID: 3622485869479072455}
+  - component: {fileID: 2100987846}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622485869479072454}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -50,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   climbSpeed: 3
-  jumpPower: 10
+  jumpPower: 12.5
   _jumpVector: {x: 0.8, y: 1}
   stepParticles:
   - {fileID: 1808284615885679176, guid: 2b53661854a55e949abcd3030784ab76, type: 3}
@@ -240,6 +241,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d1ce0c4294ee341ac808a090e3eb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2100987846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622485869479072454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb82ff4f1083444c91b7ac17989d18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDie: 0.7
 --- !u!1 &3622485870707501787
 GameObject:
   m_ObjectHideFlags: 0
