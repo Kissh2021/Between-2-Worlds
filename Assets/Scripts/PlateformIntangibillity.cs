@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[AddComponentMenu("Platform/Plateforme Intangibillity")]
 public class PlateformIntangibillity : MonoBehaviour
 {
     private Transform m_playerT;

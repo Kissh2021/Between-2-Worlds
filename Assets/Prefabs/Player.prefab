@@ -53,8 +53,7 @@ MonoBehaviour:
   jumpPower: 12
   _jumpVector: {x: 0.8, y: 1}
   stepParticle: {fileID: 1808284615885679176, guid: 2b53661854a55e949abcd3030784ab76, type: 3}
-  stepInterval: 0.5
-  dieParticle: {fileID: 9042215611358566627, guid: 78d205c9ef044364a8244b39fe3efd28, type: 3}
+  stepInterval: 0.2
   dieEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -264,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647927997617792412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 647927997364506154}
@@ -310,7 +309,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: -6529521386538993738, guid: bee8b298825cce4429b2e680fa67ac48, type: 3}
+  m_Sprite: {fileID: 4229546059600284221, guid: dc4096976cf61754384c7c7d695548df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

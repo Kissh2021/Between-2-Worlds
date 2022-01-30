@@ -22,11 +22,11 @@ public class PlayerAnimationBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.velocity.normalized.x > 0)
+        if (rb.velocity.x > 0.3f)
         {
             sr.flipX = false;
         }
-        else if (rb.velocity.normalized.x < 0)
+        else if (rb.velocity.x < -0.3f)
         {
             sr.flipX = true;
         }
