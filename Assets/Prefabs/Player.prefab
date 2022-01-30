@@ -67,6 +67,13 @@ MonoBehaviour:
   bonusJumpEvent:
     m_PersistentCalls:
       m_Calls: []
+  groundedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _movingState: 0
+  beforeDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3622485869479072450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb82ff4f1083444c91b7ac17989d18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeDie: 0.7
+  timeBeforeDie: 0.2
 --- !u!114 &2118672439782822336
 MonoBehaviour:
   m_ObjectHideFlags: 0
