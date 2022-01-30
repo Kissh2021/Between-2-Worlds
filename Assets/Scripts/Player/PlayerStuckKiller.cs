@@ -25,6 +25,9 @@ public class PlayerStuckKiller : MonoBehaviour
     private void Start()
     {
         player = GetComponent<PlayerBehaviour>();
+        player.dieEvent.AddListener(() => {
+            urDed = false;
+        });
     }
 
     void Update()
