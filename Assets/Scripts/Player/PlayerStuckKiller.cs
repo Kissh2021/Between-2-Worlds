@@ -43,15 +43,22 @@ public class PlayerStuckKiller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(player.transform.position, Vector2.up, 1.7f);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(player.transform.position, Vector2.up, 1.3f);
+        Debug.DrawRay(player.transform.position, Vector2.up * 1.3f);
 
-        if (hits.Any(x => x.collider.gameObject != player.gameObject))
+        if (hits.Any())
         {
-            m_sometingInPlayer = hits.Any(x => !x.collider.isTrigger);
-        }
-        else
-        {
-            m_sometingInPlayer = false;
+            foreach (var hit in hits)
+            {
+                if (hit.collider.gameObject != gameObject && !hit.collider.isTrigger)
+                {
+                    m_sometingInPlayer = true;
+                }
+                else
+                {
+                    m_sometingInPlayer = false;
+                }
+            } 
         }
     }
 }
