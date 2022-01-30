@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using Interfaces;
 using JetBrains.Annotations;
+using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -19,6 +20,8 @@ public class PlayerStuckKiller : MonoBehaviour
 
     private PlayerBehaviour player;
 
+    private bool urDed;
+
     private void Start()
     {
         player = GetComponent<PlayerBehaviour>();
@@ -28,8 +31,9 @@ public class PlayerStuckKiller : MonoBehaviour
     {
         if (m_sometingInPlayer)
         {
-            if (m_timer > timeBeforeDie)
+            if (m_timer > timeBeforeDie && !urDed)
             {
+                urDed = true;
                 (player as IDamageable).Hit();
             }
             m_timer += Time.deltaTime;
