@@ -17,6 +17,7 @@ public class DimensionsManager
     }
 
     public UnityEvent warpEvent = new UnityEvent();
+    public UnityEvent transitionEvent = new UnityEvent();
 
     private Dimensions _dimension = Dimensions.Afthlea;
 

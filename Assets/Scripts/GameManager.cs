@@ -57,13 +57,14 @@ public class GameManager : MonoBehaviour
     private IEnumerator warpCoroutine()
     {
         dm.transition = DimensionsManager.Transition.In;
+        dm.transitionEvent.Invoke();
         Debug.Log(dm.transition);
-        yield return new WaitForSeconds(dimensionTransitionDuration); 
+        yield return new WaitForSeconds(dimensionTransitionDuration / 2); 
 
         dm.warp();
         dm.transition = DimensionsManager.Transition.Out;
         Debug.Log(dm.transition);
-        yield return new WaitForSeconds(dimensionTransitionDuration);
+        yield return new WaitForSeconds(dimensionTransitionDuration / 2);
 
         dm.transition = null;
     }
