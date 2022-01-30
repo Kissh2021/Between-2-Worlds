@@ -1,4 +1,5 @@
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator warpCoroutine()
     {
+        var sfx = gameObject.AddComponent<StudioEventEmitter>();
         dm.transition = DimensionsManager.Transition.In;
         dm.transitionEvent.Invoke();
         Debug.Log(dm.transition);
@@ -65,7 +67,7 @@ public class GameManager : MonoBehaviour
         dm.transition = DimensionsManager.Transition.Out;
         Debug.Log(dm.transition);
         yield return new WaitForSeconds(dimensionTransitionDuration / 2);
-
+        
         dm.transition = null;
     }
 }

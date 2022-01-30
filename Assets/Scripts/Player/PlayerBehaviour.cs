@@ -30,6 +30,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private float stepInterval = 0.2f;
     [SerializeField]
     private GameObject dieParticle;
+    [SerializeField]
+    private GameObject jumpFume;
 
     private int m_bonusJumps = 0;
 
@@ -79,6 +81,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
         }
     }
 
+
+    public UnityEvent warpSound;
     void Start()
     {
         m_animator = GetComponentInChildren<Animator>();
@@ -88,6 +92,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
         origialGravityScale = m_rb.gravityScale;
 
         GameManager.instance.dm.warpEvent.AddListener(setAnimatorLayer);
+        GameManager.instance.dm.transitionEvent.AddListener(warpSound.Invoke);
         setAnimatorLayer();
     }
 
@@ -136,6 +141,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
                     else if (m_bonusJumps > 0)
                     {
                         Jump();
+                        GameObject go = Instantiate(jumpFume);
+                        go.transform.position = transform.position;
                         m_bonusJumps--;
                     }
                     break;
@@ -190,6 +197,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
         m_rb.velocity = vel;
     }
+
 
     public void Warp(InputAction.CallbackContext _context)
     {
