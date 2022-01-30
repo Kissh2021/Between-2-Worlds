@@ -52,6 +52,9 @@ MonoBehaviour:
   climbSpeed: 3
   jumpPower: 12
   _jumpVector: {x: 0.8, y: 1}
+  stepParticle: {fileID: 1808284615885679176, guid: 2b53661854a55e949abcd3030784ab76, type: 3}
+  stepInterval: 0.5
+  dieParticle: {fileID: 9042215611358566627, guid: 78d205c9ef044364a8244b39fe3efd28, type: 3}
   dieEvent:
     m_PersistentCalls:
       m_Calls: []

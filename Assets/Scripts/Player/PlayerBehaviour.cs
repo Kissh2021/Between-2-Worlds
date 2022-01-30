@@ -25,6 +25,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private GameObject stepParticle;
     [SerializeField]
     private float stepInterval = 0.5f;
+    [SerializeField]
+    private GameObject dieParticle;
 
     private int m_bonusJumps = 0;
 
@@ -87,7 +89,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
             Move(m_inputVector);
         }
 
-        if (stepParticleAllowed && m_isgrounded && m_rb.velocity.x >= 0.1f)
+        Debug.Log(m_rb.velocity.magnitude);
+        if (stepParticleAllowed && m_isgrounded && m_rb.velocity.magnitude >= 0.1f)
             createStepParticle();
     }
 
@@ -212,6 +215,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     private IEnumerator waitBeforeDie(float duration = 1f)
     {
+        GameObject particle = Instantiate(dieParticle);
+        particle.transform.position = gameObject.transform.position;
         yield return new WaitForSecondsRealtime(duration);
         reset();
         dieEvent.Invoke();
