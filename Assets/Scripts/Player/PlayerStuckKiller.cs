@@ -47,7 +47,7 @@ public class PlayerStuckKiller : MonoBehaviour
 
         if (hits.Any(x => x.collider.gameObject != player.gameObject))
         {
-            m_sometingInPlayer = true;
+            m_sometingInPlayer = hits.Any(x => !x.collider.isTrigger);
         }
         else
         {
