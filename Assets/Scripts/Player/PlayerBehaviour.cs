@@ -21,10 +21,19 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private float jumpPower = 10f;
     [SerializeField]
     private Vector2 _jumpVector = new Vector2(0.8f, 1);
+    [SerializeField]
+    private GameObject stepParticle;
+    [SerializeField]
+    private float stepInterval = 0.5f;
 
     private int m_bonusJumps = 0;
 
     private Vector2 m_inputVector = Vector2.zero;
+
+    public Vector2 inputVector
+    {
+        get { return m_inputVector; }
+    }
 
     private Rigidbody2D m_rb;
     private float origialGravityScale;
@@ -42,6 +51,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private PlayerInput m_playerInput;
     private SpriteRenderer m_renderer;
     private Animator m_animator;
+
+    private bool stepParticleAllowed = true;
 
     private float currentSpeed
     {
@@ -75,6 +86,9 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
         {
             Move(m_inputVector);
         }
+
+        if (stepParticleAllowed && m_isgrounded && m_rb.velocity.x >= 0.1f)
+            createStepParticle();
     }
 
     private void FixedUpdate()
@@ -249,5 +263,19 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
             m_animator.SetLayerWeight(0, 0);
             m_animator.SetLayerWeight(1, 1);
         }
+    }
+    
+    private void createStepParticle()
+    {
+        GameObject particle = Instantiate(stepParticle);
+        particle.transform.position = gameObject.transform.position;
+        StartCoroutine(stepParticleCoroutine());
+    }
+
+    private IEnumerator stepParticleCoroutine()
+    {
+        stepParticleAllowed = false;
+        yield return new WaitForSeconds(stepInterval);
+        stepParticleAllowed = true;
     }
 }
