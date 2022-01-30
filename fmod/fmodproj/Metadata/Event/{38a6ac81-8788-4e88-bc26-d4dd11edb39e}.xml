@@ -180,7 +180,7 @@
 	</object>
 	<object class="SingleSound" id="{a1b4630c-eba0-49ab-8d5b-b9d0dd9dee57}">
 		<property name="length">
-			<value>72.28000000000003</value>
+			<value>52</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>10.29000000000001</value>
@@ -211,10 +211,10 @@
 	</object>
 	<object class="LoopRegion" id="{81bbfee4-a708-45e7-a054-8821203aad6d}">
 		<property name="position">
-			<value>30.836268472906404</value>
+			<value>30.846951825054735</value>
 		</property>
 		<property name="length">
-			<value>20.450000000000003</value>
+			<value>20.529386953937472</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{89ca32c2-449d-4d0d-aae1-441724bbaf33}</destination>
