@@ -69,6 +69,7 @@
 		<relationship name="modules">
 			<destination>{45c1438e-e3b7-43cd-b9b6-d2d7644b97db}</destination>
 			<destination>{3581d0c4-7526-4eb2-a2c4-6f7260b922e9}</destination>
+			<destination>{a1b4630c-eba0-49ab-8d5b-b9d0dd9dee57}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{fcfb99e6-81c3-415e-80a1-94ff2629530c}</destination>
@@ -81,7 +82,7 @@
 			<destination>{4d681f03-ce74-431f-b223-d2b2849f5c53}</destination>
 		</relationship>
 		<relationship name="modules">
-			<destination>{a1b4630c-eba0-49ab-8d5b-b9d0dd9dee57}</destination>
+			<destination>{08dc455d-4955-4204-9963-c6d08768f9da}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{e9c00b0e-462a-47b6-b84c-04d7f93b333d}</destination>
@@ -92,6 +93,7 @@
 			<destination>{a1b4630c-eba0-49ab-8d5b-b9d0dd9dee57}</destination>
 			<destination>{45c1438e-e3b7-43cd-b9b6-d2d7644b97db}</destination>
 			<destination>{3581d0c4-7526-4eb2-a2c4-6f7260b922e9}</destination>
+			<destination>{08dc455d-4955-4204-9963-c6d08768f9da}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{81bbfee4-a708-45e7-a054-8821203aad6d}</destination>
@@ -146,6 +148,17 @@
 			<destination>{ce8ffe01-90a8-4e1d-bf22-907c16af82a5}</destination>
 		</relationship>
 	</object>
+	<object class="SingleSound" id="{a1b4630c-eba0-49ab-8d5b-b9d0dd9dee57}">
+		<property name="length">
+			<value>10.286268472906404</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>10.29000000000001</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{ce8ffe01-90a8-4e1d-bf22-907c16af82a5}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerGroup" id="{fcfb99e6-81c3-415e-80a1-94ff2629530c}">
 		<property name="name">
 			<value>Audio 1</value>
@@ -178,7 +191,7 @@
 			<destination>{112d26db-41e9-4215-b6b8-931518915a87}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{a1b4630c-eba0-49ab-8d5b-b9d0dd9dee57}">
+	<object class="SingleSound" id="{08dc455d-4955-4204-9963-c6d08768f9da}">
 		<property name="length">
 			<value>52</value>
 		</property>
