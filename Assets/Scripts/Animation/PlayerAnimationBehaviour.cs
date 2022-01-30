@@ -30,6 +30,7 @@ public class PlayerAnimationBehaviour : MonoBehaviour
         {
             sr.flipX = true;
         }
+        animator.SetBool("IsGrounded", pb.isGrounded);
         animator.SetFloat("Velocity", rb.velocity.magnitude);
     }
 }
