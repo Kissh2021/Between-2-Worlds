@@ -45,6 +45,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     public UnityEvent dieEvent = new UnityEvent();
     public UnityEvent bonusJumpEvent = new UnityEvent();
+    public UnityEvent groundedEvent = new UnityEvent();
 
     private bool m_isgrounded;
     public bool isGrounded
@@ -205,11 +206,14 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
         foreach (var hit in hits)
         {
-            if (!hit.collider.CompareTag("Player"))
+            if (!hit.collider.isTrigger && !hit.collider.CompareTag("Player"))
             {
                 grounded = true;
             }
         }
+
+        if (grounded)
+            groundedEvent.Invoke();
 
        return grounded;
     }
