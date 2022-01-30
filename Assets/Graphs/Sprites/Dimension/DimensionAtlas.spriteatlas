@@ -50,11 +50,20 @@ SpriteAtlas:
     - {fileID: 2800000, guid: df401bac78818a949b586ad83ab285f3, type: 3}
     - {fileID: 2800000, guid: cd071582776221648af756b240a34b00, type: 3}
     - {fileID: 2800000, guid: a7644d8647eb4ee4fa4e4b7ee78183de, type: 3}
+    - {fileID: 2800000, guid: c276ae7297452d5408f23158a66966e7, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: -3062092088487290385, guid: c276ae7297452d5408f23158a66966e7, type: 3}
+  - {fileID: 7369310100893039786, guid: c276ae7297452d5408f23158a66966e7, type: 3}
+  - {fileID: 5354907988563013229, guid: c276ae7297452d5408f23158a66966e7, type: 3}
+  - {fileID: -642979586734015256, guid: c276ae7297452d5408f23158a66966e7, type: 3}
+  - {fileID: 4607271337448190035, guid: c276ae7297452d5408f23158a66966e7, type: 3}
+  - {fileID: -3728323575945656240, guid: c276ae7297452d5408f23158a66966e7, type: 3}
+  - {fileID: 4985883598911872731, guid: c276ae7297452d5408f23158a66966e7, type: 3}
+  - {fileID: 839379228231503131, guid: c276ae7297452d5408f23158a66966e7, type: 3}
   - {fileID: 21300000, guid: cd071582776221648af756b240a34b00, type: 3}
   - {fileID: -4863817181220591668, guid: a7644d8647eb4ee4fa4e4b7ee78183de, type: 3}
   - {fileID: -8967567178219322770, guid: a7644d8647eb4ee4fa4e4b7ee78183de, type: 3}
@@ -97,6 +106,14 @@ SpriteAtlas:
   - {fileID: -5424009852557130676, guid: 9487fe5c8f4d3414bb9e5296c5828527, type: 3}
   - {fileID: 21300000, guid: df401bac78818a949b586ad83ab285f3, type: 3}
   m_PackedSpriteNamesToIndex:
+  - saut_haut_total (1)_1
+  - saut_haut_total (1)_0
+  - saut_haut_total (1)_3
+  - saut_haut_total (1)_2
+  - saut_haut_total (1)_5
+  - saut_haut_total (1)_4
+  - saut_haut_total (1)_7
+  - saut_haut_total (1)_6
   - asset_alfthea_arbre1_2
   - saut_1
   - saut_0
