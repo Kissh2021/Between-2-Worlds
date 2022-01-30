@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 3622485869479072452}
   - component: {fileID: 3622485869479072455}
   - component: {fileID: 2100987846}
+  - component: {fileID: 2118672439782822336}
+  - component: {fileID: 38300400051710676}
+  - component: {fileID: 3786579632671909276}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -56,7 +59,7 @@ MonoBehaviour:
   stepParticles:
   - {fileID: 1808284615885679176, guid: 2b53661854a55e949abcd3030784ab76, type: 3}
   - {fileID: 1808284615885679176, guid: 6457d8de1d075c1449a018bbcfcda32c, type: 3}
-  stepInterval: 0.2
+  stepInterval: 0.4
   dieParticle: {fileID: 9042215611358566627, guid: ecf28b6cc3d04d04eb6dbb61144f3134, type: 3}
   dieEvent:
     m_PersistentCalls:
@@ -254,6 +257,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeDie: 0.7
+--- !u!114 &2118672439782822336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622485869479072454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -9535356
+      Data2: 1214705330
+      Data3: 213285277
+      Data4: 1457239673
+    Path: event:/Death
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &38300400051710676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622485869479072454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1230001837
+      Data2: 1191652806
+      Data3: 1331016630
+      Data4: 1028416778
+    Path: event:/Respawn
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3786579632671909276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622485869479072454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9986c2c18f91644fa709276a5038860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  death: {fileID: 2118672439782822336}
+  respawn: {fileID: 38300400051710676}
 --- !u!1 &3622485870707501787
 GameObject:
   m_ObjectHideFlags: 0

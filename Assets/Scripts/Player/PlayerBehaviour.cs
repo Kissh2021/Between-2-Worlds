@@ -214,8 +214,11 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
        return grounded;
     }
 
+
+    public UnityEvent beforeDieEvent;
     public void Hit()
     {
+        beforeDieEvent.Invoke();
         disable();
         StartCoroutine(waitBeforeDie());
     }
