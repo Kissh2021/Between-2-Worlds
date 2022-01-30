@@ -11,7 +11,7 @@ using UnityEngine.PlayerLoop;
 public class PlayerStuckKiller : MonoBehaviour
 {
     [SerializeField]
-    private float timeBeforeDie = 0.7f;
+    private float timeBeforeDie = 0.2f;
 
     private float m_timer = 0f;
     
@@ -26,6 +26,7 @@ public class PlayerStuckKiller : MonoBehaviour
         player = GetComponent<PlayerBehaviour>();
         player.dieEvent.AddListener(() => {
             urDed = false;
+            m_sometingInPlayer = false;
         });
     }
 
