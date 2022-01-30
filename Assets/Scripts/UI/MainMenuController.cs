@@ -6,18 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField]
-    private string playScene;
-    [SerializeField]
-    private string creditScene;
+    private int playScene;
 
     public void play()
     {
         SceneManager.LoadScene(playScene);
-    }
-
-    public void credit()
-    {
-        SceneManager.LoadScene(creditScene);
     }
 
     public void exitGame()
