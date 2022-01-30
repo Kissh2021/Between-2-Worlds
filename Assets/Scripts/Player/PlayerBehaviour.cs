@@ -44,6 +44,11 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     public UnityEvent bonusJumpEvent = new UnityEvent();
 
     private bool m_isgrounded;
+    public bool isGrounded
+    {
+        get { return m_isgrounded; }
+    }
+
     private MovingState _movingState = MovingState.Normal;
 
     private ClimbableBehavior currentClimbableBehavior;
