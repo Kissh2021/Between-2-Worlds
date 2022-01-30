@@ -7,10 +7,19 @@ public class DisableOnWarp : MonoBehaviour, IWarpable
 {
     [SerializeField]
     private DimensionsManager.Dimensions _dimension;
+    [SerializeField]
+    private bool destroyParticles = true;
 
     public void Warp()
     {
         gameObject.SetActive(GameManager.instance.dm.dimension == _dimension);
+        if(destroyParticles)
+        {
+            foreach (var particle in GetComponentsInChildren<ParticleSystem>())
+            {
+                Destroy(particle.gameObject);
+            }
+        }
     }
 
     // Start is called before the first frame update
