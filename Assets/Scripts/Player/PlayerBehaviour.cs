@@ -105,6 +105,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     private void FixedUpdate()
     {
         m_isgrounded = IsGrounded();
+        if (m_isgrounded)
+            m_bonusJumps = 0;
     }
 
     public void MoveInput(InputAction.CallbackContext _context)
