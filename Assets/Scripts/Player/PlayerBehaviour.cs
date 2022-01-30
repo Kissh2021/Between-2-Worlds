@@ -1,8 +1,11 @@
 using Interfaces;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using static Utils;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
@@ -22,9 +25,9 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     [SerializeField]
     private Vector2 _jumpVector = new Vector2(0.8f, 1);
     [SerializeField]
-    private GameObject stepParticle;
+    private List<GameObject> stepParticles = new List<GameObject>();
     [SerializeField]
-    private float stepInterval = 0.5f;
+    private float stepInterval = 0.2f;
     [SerializeField]
     private GameObject dieParticle;
 
@@ -277,8 +280,18 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     
     private void createStepParticle()
     {
-        GameObject particle = Instantiate(stepParticle);
-        particle.transform.position = gameObject.transform.position;
+        GameObject particle;
+        if (GameManager.instance.dm.dimension == DimensionsManager.Dimensions.Afthlea && stepParticles[0])
+        {
+            particle = Instantiate(stepParticles[0]);
+            particle.transform.position = gameObject.transform.position;
+        }
+        else if (stepParticles[1])
+        { 
+            particle = Instantiate(stepParticles[1]);
+            particle.transform.position = gameObject.transform.position;
+        }
+
         StartCoroutine(stepParticleCoroutine());
     }
 

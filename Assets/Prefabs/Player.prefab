@@ -50,11 +50,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   climbSpeed: 3
-  jumpPower: 12
+  jumpPower: 10
   _jumpVector: {x: 0.8, y: 1}
-  stepParticle: {fileID: 1808284615885679176, guid: 2b53661854a55e949abcd3030784ab76, type: 3}
-  stepInterval: 0.5
-  dieParticle: {fileID: 9042215611358566627, guid: ecf28b6cc3d04d04eb6dbb61144f3134, type: 3}
+  stepParticles:
+  - {fileID: 1808284615885679176, guid: 2b53661854a55e949abcd3030784ab76, type: 3}
+  - {fileID: 1808284615885679176, guid: 6457d8de1d075c1449a018bbcfcda32c, type: 3}
+  stepInterval: 0.2
+  dieParticle: {fileID: 0}
   dieEvent:
     m_PersistentCalls:
       m_Calls: []

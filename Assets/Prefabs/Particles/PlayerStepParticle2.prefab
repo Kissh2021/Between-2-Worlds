@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2007912746734315718}
   - component: {fileID: 2006363216997850602}
   m_Layer: 0
-  m_Name: PlayerSmoke
+  m_Name: PlayerStepParticle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 0.13333334}
+      maxColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 0.36078432}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1280,7 +1280,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 0}
+        key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 0}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 0.043137256}
         key3: {r: 0, g: 0.3019608, b: 0.91764706, a: 0}
@@ -1288,7 +1288,7 @@ ParticleSystem:
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 0
+        ctime0: 386
         ctime1: 65535
         ctime2: 65535
         ctime3: 65535
@@ -1297,7 +1297,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 19660
+        atime1: 25636
         atime2: 50115
         atime3: 65535
         atime4: 0
