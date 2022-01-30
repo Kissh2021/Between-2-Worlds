@@ -47,11 +47,14 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 9487fe5c8f4d3414bb9e5296c5828527, type: 3}
     - {fileID: 2800000, guid: fbbf9e1a429a4f74a86bfcc1b4fb1a35, type: 3}
     - {fileID: 2800000, guid: dc4096976cf61754384c7c7d695548df, type: 3}
+    - {fileID: 2800000, guid: df401bac78818a949b586ad83ab285f3, type: 3}
+    - {fileID: 2800000, guid: cd071582776221648af756b240a34b00, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: cd071582776221648af756b240a34b00, type: 3}
   - {fileID: 4229546059600284221, guid: dc4096976cf61754384c7c7d695548df, type: 3}
   - {fileID: 9005818999663074448, guid: dc4096976cf61754384c7c7d695548df, type: 3}
   - {fileID: 5401493839184919645, guid: fbbf9e1a429a4f74a86bfcc1b4fb1a35, type: 3}
@@ -89,7 +92,9 @@ SpriteAtlas:
   - {fileID: 5350486239296895938, guid: 9487fe5c8f4d3414bb9e5296c5828527, type: 3}
   - {fileID: -6040478828158272767, guid: 9487fe5c8f4d3414bb9e5296c5828527, type: 3}
   - {fileID: -5424009852557130676, guid: 9487fe5c8f4d3414bb9e5296c5828527, type: 3}
+  - {fileID: 21300000, guid: df401bac78818a949b586ad83ab285f3, type: 3}
   m_PackedSpriteNamesToIndex:
+  - asset_alfthea_arbre1_2
   - attente_total_0
   - attente_total_1
   - sprite_sheet_solVERSdeux_6
@@ -127,6 +132,7 @@ SpriteAtlas:
   - sprite_sheet_plateformeVERSdeux_0
   - sprite_sheet_plateformeVERSdeux_3
   - sprite_sheet_plateformeVERSdeux_2
+  - asset_alfthea_arbre1
   m_RenderDataMap: {}
   m_Tag: DimensionAtlas
   m_IsVariant: 0
