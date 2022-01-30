@@ -9470,34 +9470,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3622485869479072451, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
-      propertyPath: warpSound.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3622485869479072451, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
-      propertyPath: warpSound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3622485869479072451, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
-      propertyPath: warpSound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3622485870635291911}
-    - target: {fileID: 3622485869479072451, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
-      propertyPath: warpSound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3622485869479072451, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
-      propertyPath: warpSound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 3622485869479072451, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
-      propertyPath: warpSound.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FMODUnity.StudioEventEmitter, FMODUnity
-      objectReference: {fileID: 0}
-    - target: {fileID: 3622485869479072451, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
-      propertyPath: warpSound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3622485869479072454, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9548,14 +9520,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
---- !u!114 &3622485870635291911 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8508091048765709142, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
-  m_PrefabInstance: {fileID: 3622485870635291910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
