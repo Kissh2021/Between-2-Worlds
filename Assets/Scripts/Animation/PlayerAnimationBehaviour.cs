@@ -22,15 +22,24 @@ public class PlayerAnimationBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.velocity.x > 0.3f)
+        if (pb._movingState != PlayerBehaviour.MovingState.Climb)
+        {
+            if (rb.velocity.x > 0.3f)
+            {
+                sr.flipX = false;
+            }
+            else if (rb.velocity.x < -0.3f)
+            {
+                sr.flipX = true;
+            }
+        }
+        else
         {
             sr.flipX = false;
         }
-        else if (rb.velocity.x < -0.3f)
-        {
-            sr.flipX = true;
-        }
+        
         animator.SetBool("IsGrounded", pb.isGrounded);
+        animator.SetBool("IsClimbing", pb._movingState == PlayerBehaviour.MovingState.Climb);
         animator.SetFloat("Velocity", rb.velocity.magnitude);
     }
 }

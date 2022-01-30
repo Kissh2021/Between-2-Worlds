@@ -10,7 +10,7 @@ using static Utils;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 {
-    private enum MovingState
+    public enum MovingState
     {
         Normal,
         Climb
@@ -53,7 +53,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
         get { return m_isgrounded; }
     }
 
-    private MovingState _movingState = MovingState.Normal;
+    public MovingState _movingState = MovingState.Normal;
 
     private ClimbableBehavior currentClimbableBehavior;
 

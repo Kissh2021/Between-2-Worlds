@@ -420,6 +420,9 @@
 		<property name="length">
 			<value>20.529386953937472</value>
 		</property>
+		<property name="name">
+			<value>Main Loop</value>
+		</property>
 		<relationship name="timeline">
 			<destination>{89ca32c2-449d-4d0d-aae1-441724bbaf33}</destination>
 		</relationship>
@@ -430,6 +433,7 @@
 	<object class="MixerBusEffectChain" id="{f2d995dc-286d-484f-9e5f-8f2cd8979a50}">
 		<relationship name="effects">
 			<destination>{2173eecd-765a-423f-80eb-824262eac7d3}</destination>
+			<destination>{ab60120c-c4f4-4907-ba23-750887f30298}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{44b75bd1-4e57-47f3-a190-233dda247c80}" />
@@ -445,6 +449,7 @@
 	<object class="MixerBusEffectChain" id="{5b85b4f9-f768-4035-b4e2-2f2c9212d926}">
 		<relationship name="effects">
 			<destination>{c4718415-decf-455f-9de1-dfd2b49a91c4}</destination>
+			<destination>{5bdc4ffc-bbbb-414a-b9a9-e94368f89ad5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{26569ba1-4a6a-4f9c-8120-4a89705d4afa}" />
@@ -478,6 +483,7 @@
 	</object>
 	<object class="MixerBusPanner" id="{8cf59937-eac2-4340-84eb-f0def21c0210}" />
 	<object class="MixerBusFader" id="{2173eecd-765a-423f-80eb-824262eac7d3}" />
+	<object class="LimiterEffect" id="{ab60120c-c4f4-4907-ba23-750887f30298}" />
 	<object class="AutomationCurve" id="{55edc3e4-a0ee-4756-94d6-627dae71893b}">
 		<relationship name="parameter">
 			<destination>{f662783b-0ca5-4c33-a9cc-cd0218789c1d}</destination>
@@ -488,6 +494,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{c4718415-decf-455f-9de1-dfd2b49a91c4}" />
+	<object class="PitchShifterEffect" id="{5bdc4ffc-bbbb-414a-b9a9-e94368f89ad5}">
+		<property name="pitch">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="AutomationCurve" id="{4ffb24c3-5a42-4223-9c3f-20415eae448b}">
 		<relationship name="parameter">
 			<destination>{f662783b-0ca5-4c33-a9cc-cd0218789c1d}</destination>

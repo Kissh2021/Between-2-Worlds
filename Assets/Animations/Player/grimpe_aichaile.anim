@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: jumpIdle_bw
+  m_Name: grimpe_aichaile
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,14 +20,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: c06d16e49c7fc744bbeade59551cdbed, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 4e39efaa7ce9a1347a3457df8c944c3b, type: 3}
+      value: {fileID: -8202144402637540362, guid: 08214b249d060024d9206cbaef69cf00, type: 3}
+    - time: 0.5
+      value: {fileID: -2934228372851268021, guid: 08214b249d060024d9206cbaef69cf00, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 6
+  m_SampleRate: 2
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -42,14 +42,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: c06d16e49c7fc744bbeade59551cdbed, type: 3}
-    - {fileID: 21300000, guid: 4e39efaa7ce9a1347a3457df8c944c3b, type: 3}
+    - {fileID: -8202144402637540362, guid: 08214b249d060024d9206cbaef69cf00, type: 3}
+    - {fileID: -2934228372851268021, guid: 08214b249d060024d9206cbaef69cf00, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
