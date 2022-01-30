@@ -18,13 +18,13 @@ public class FadeOnWarpBehavior : MonoBehaviour
         switch (GameManager.instance.dm.transition)
         {
             case DimensionsManager.Transition.In:
-                opacity = m_image.color.a + ((float)1 / GameManager.instance.dimensionTransitionFrames);
+                opacity = m_image.color.a + Time.deltaTime / GameManager.instance.dimensionTransitionDuration;
 
                 if (opacity >= 1)
                     opacity = 1;
                 break;
             case DimensionsManager.Transition.Out:
-                opacity = m_image.color.a - ((float)1 / GameManager.instance.dimensionTransitionFrames);
+                opacity = m_image.color.a - Time.deltaTime / GameManager.instance.dimensionTransitionDuration;
 
                 if (opacity >= 1)
                     opacity = 1;

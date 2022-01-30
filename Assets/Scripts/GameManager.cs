@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public DimensionsManager dm;
 
-    public int dimensionTransitionFrames = 10;
+    public float dimensionTransitionDuration = 0.2f;
 
     void Awake()
     {
@@ -48,19 +48,22 @@ public class GameManager : MonoBehaviour
 
     public void warp()
     {
-        StartCoroutine(warpCoroutine());
+        if(dm.transition == null)
+        {
+            StartCoroutine(warpCoroutine());
+        }
     }
 
     private IEnumerator warpCoroutine()
     {
         dm.transition = DimensionsManager.Transition.In;
         Debug.Log(dm.transition);
-        yield return StartCoroutine(Utils.WaitForFrames(dimensionTransitionFrames));
+        yield return new WaitForSeconds(dimensionTransitionDuration); 
 
         dm.warp();
         dm.transition = DimensionsManager.Transition.Out;
         Debug.Log(dm.transition);
-        yield return StartCoroutine(Utils.WaitForFrames(dimensionTransitionFrames));
+        yield return new WaitForSeconds(dimensionTransitionDuration);
 
         dm.transition = null;
     }
