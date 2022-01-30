@@ -97,7 +97,6 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
             Move(m_inputVector);
         }
 
-        Debug.Log(m_rb.velocity.magnitude);
         if (stepParticleAllowed && m_isgrounded && m_rb.velocity.magnitude >= 0.1f)
             createStepParticle();
     }
