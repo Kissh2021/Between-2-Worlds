@@ -542,7 +542,7 @@ Transform:
   m_Children:
   - {fileID: 1464501836}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &395221656
 MonoBehaviour:
@@ -666,7 +666,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &462278202
 Rigidbody2D:
@@ -3539,7 +3539,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1315215785
 PrefabInstance:
@@ -5944,7 +5944,7 @@ RectTransform:
   m_Children:
   - {fileID: 1262522700}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6684,6 +6684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2079123755}
   - component: {fileID: 2079123754}
+  - component: {fileID: 2079123756}
   m_Layer: 0
   m_Name: '@RespawnManager'
   m_TagString: Untagged
@@ -6704,6 +6705,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _respawnFlag: {fileID: 0}
+  respawnSetEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2079123756}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2079123755
 Transform:
   m_ObjectHideFlags: 0
@@ -6718,6 +6734,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079123756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079123753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 595849505
+      Data2: 1334588136
+      Data3: -1810382663
+      Data4: 1777326688
+    Path: event:/Respawn Activated
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2134285326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,7 +6914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3622485870773512519, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3622485870773512519, guid: 84e687d418ced4c41ba5f1cd823bce1b, type: 3}
       propertyPath: m_LocalPosition.x

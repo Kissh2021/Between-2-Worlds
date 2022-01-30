@@ -1,5 +1,6 @@
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RespawnManager : MonoBehaviour
 {   
@@ -8,11 +9,14 @@ public class RespawnManager : MonoBehaviour
 
     private PlayerBehaviour _player;
 
+    public UnityEvent respawnSetEvent;
+    
     public RespawnFlagBehavior respawnFlag
     {
         get { return _respawnFlag; }
         set
         {
+            respawnSetEvent.Invoke();
             _respawnFlag = value;
         }
     }
