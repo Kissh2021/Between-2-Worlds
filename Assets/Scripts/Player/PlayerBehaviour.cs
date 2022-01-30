@@ -211,12 +211,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
             }
         }
 
-        if (isGrounded)
-        {
-            grounded = m_rb.velocity.y > 0.1f;
-        }
-
-        return grounded;
+       return grounded;
     }
 
     public void Hit()
