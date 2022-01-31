@@ -10,6 +10,9 @@ public class OnTriggerEnterEvent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        onTriggerEnterEvent.Invoke();
+        if (col.CompareTag("Player"))
+        {
+            onTriggerEnterEvent.Invoke();
+        }
     }
 }
