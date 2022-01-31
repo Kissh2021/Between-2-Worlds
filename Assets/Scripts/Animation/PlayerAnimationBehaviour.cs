@@ -17,6 +17,12 @@ public class PlayerAnimationBehaviour : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
+        pb.doubleJumpEvent.AddListener(JumpAgain);
+    }
+
+    void JumpAgain()
+    {
+        animator.SetTrigger("JumpAgain");
     }
 
     // Update is called once per frame
@@ -36,6 +42,11 @@ public class PlayerAnimationBehaviour : MonoBehaviour
         else
         {
             sr.flipX = false;
+        }
+
+        if (pb.isGrounded)
+        {
+            animator.ResetTrigger("JumpAgain");
         }
         
         animator.SetBool("IsGrounded", pb.isGrounded);

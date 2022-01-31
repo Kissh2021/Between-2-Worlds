@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3622485870773512519}
   - component: {fileID: 3622485869479072451}
   - component: {fileID: 3622485869479072450}
+  - component: {fileID: 4365384578172585644}
   - component: {fileID: 3622485869479072453}
   - component: {fileID: 3622485869479072452}
   - component: {fileID: 3622485869479072455}
@@ -22,7 +23,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -209,6 +210,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!70 &4365384578172585644
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622485869479072454}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004976034, y: 0.90158176}
+  m_Size: {x: 0.50995207, y: 1.8026237}
+  m_Direction: 0
 --- !u!61 &3622485869479072453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -216,7 +233,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622485869479072454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

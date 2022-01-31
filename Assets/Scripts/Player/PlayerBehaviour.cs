@@ -37,6 +37,8 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
 
     private Vector2 m_inputVector = Vector2.zero;
 
+    public UnityEvent doubleJumpEvent;
+    
     public Vector2 inputVector
     {
         get { return m_inputVector; }
@@ -144,6 +146,7 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
                         GameObject go = Instantiate(jumpFume);
                         go.transform.position = transform.position;
                         m_bonusJumps--;
+                        doubleJumpEvent.Invoke();
                     }
                     break;
             }
@@ -211,23 +214,28 @@ public class PlayerBehaviour : MonoBehaviour, IDamageable, IClimber
     {
         bool grounded = false;
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 0.2f);
-        Debug.DrawRay(transform.position, Vector2.down * 0.2f, Color.red);
+        grounded = Footcast() || Footcast(0.2f) || Footcast(-0.2f);
+
+        if (grounded)
+            groundedEvent.Invoke();
+
+        return grounded;
+    }
+
+    private bool Footcast(float xOffset = 0)
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + (Vector3)Vector2.right * xOffset, Vector2.down, 0.2f);
+        Debug.DrawRay(transform.position + (Vector3)Vector2.right * xOffset, Vector2.down*0.2f, Color.red);
 
         foreach (var hit in hits)
         {
             if (!hit.collider.isTrigger && !hit.collider.CompareTag("Player"))
             {
-                grounded = true;
+                return true;
             }
         }
-
-        if (grounded)
-            groundedEvent.Invoke();
-
-       return grounded;
+        return false;
     }
-
 
     public UnityEvent beforeDieEvent;
     public void Hit()
